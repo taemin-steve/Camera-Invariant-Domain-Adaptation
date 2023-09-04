@@ -6,7 +6,7 @@ def get_coordinates(event, x, y, flags, param):
         print(x,y)
 
 # Load the image
-image_path = "./DataPreprocessing/edge_detected_image.py"
+image_path = "./DataPreprocessing/edge_detected_image.png"
 image = cv2.imread(image_path)
 
 # Create a window and set the mouse callback
