@@ -26,5 +26,3 @@ for image_filename in image_filenames:
     if locations[0].size > 0:
         print(f"Template found in {image_filename}")
         # You can also access the locations and confidence scores if needed
-        # print("Locations:", locations)
-        # print("Confidence scores:", result[locations])
