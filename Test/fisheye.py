@@ -1,20 +1,20 @@
 import cv2
 import numpy as np 
 
-def ApplyFishEye(image, focal_length=280, y_up=300, dit = 0.5, y_t = 0.2, mask_np= None, mask_image=None, is_target = False):
+def ApplyFishEye(image, focal_length=300, x_up = 0, y_up=300, dit = 0.5, x_t = 0,  y_t = 0.2, mask_np= None, mask_image=None, is_target = False):
     
     height, width = image.shape[:2]
     
     center_x = width / 2 
     center_y = height / 2
     
-    camera_matrix = np.array([[focal_length, 0, center_x],
+    camera_matrix = np.array([[focal_length, 0, center_x + x_up],
                               [0, focal_length, center_y + y_up ],
                               [0, 0, 1]], dtype=np.float32)
     
     dist_coeffs = np.array([0, dit, 0, 0], dtype=np.float32)
     
-    translation_matrix = np.array([[1 -0.05, 0, 0],
+    translation_matrix = np.array([[1 -0.05 + x_t, 0, 0],
                                    [0, 1 - y_t , 0],
                                    [0, 0, 1]], dtype=np.float32)
     
