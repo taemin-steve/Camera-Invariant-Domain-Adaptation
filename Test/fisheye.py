@@ -39,16 +39,16 @@ def ApplyFishEye(image, focal_length=300, x_up = 0, y_up=300, dit = 0.5, x_t = 0
             largest_area = area
             largest_rectangle = (x, y, w, h)
     
-    # undistorted_image = undistorted_image[y + int(h*0.1) : y + h - int(h*0.1), x + int(w*0.1) : x + w - int(w*0.1)]
+    undistorted_image = undistorted_image[y + int(h*0.1) : y + h - int(h*0.1), x + int(w*0.1) : x + w - int(w*0.1)]
     undistorted_image = undistorted_image[y  : y + h , x  : x + w ]
     
     undistorted_image = cv2.resize(undistorted_image, (1024,512))
     if not is_target:
-        # undistorted_image[~mask_np] = 0
-        # undistorted_image += mask_image
+        undistorted_image[~mask_np] = 0
+        undistorted_image += mask_image
         _
     else:
-        # undistorted_image[~mask_np] = 12
+        undistorted_image[~mask_np] = 12
         undistorted_image = cv2.cvtColor(undistorted_image, cv2.COLOR_BGR2GRAY)
     
     return undistorted_image
