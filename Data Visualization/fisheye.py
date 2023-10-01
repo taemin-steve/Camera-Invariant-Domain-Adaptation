@@ -44,8 +44,9 @@ def ApplyFishEye(image, focal_length=280, y_up=300, dit = 0.5, y_t = 0.2, mask_n
     
     undistorted_image = cv2.resize(undistorted_image, (1024,512))
     if not is_target:
-        undistorted_image[~mask_np] = 0
-        undistorted_image += mask_image
+        # undistorted_image[~mask_np] = 0
+        # undistorted_image += mask_image
+        _
     else:
         # undistorted_image[~mask_np] = 12
         undistorted_image = cv2.cvtColor(undistorted_image, cv2.COLOR_BGR2GRAY)
